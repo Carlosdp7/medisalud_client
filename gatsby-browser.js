@@ -1,7 +1,12 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import React from 'react';
+import UserContext from './src/context/UserContext';
+import TestContext from './src/context/TestContext';
 
-// You can delete this file if you're not using it
+export const wrapRootElement = ({ element }) => (
+  <UserContext>
+    <TestContext>
+      {element}
+    </TestContext>
+  </UserContext>
+)
+
