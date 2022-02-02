@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { css } from '@emotion/react';
 
 const NotFoundPage = () => (
   <Layout>
@@ -11,7 +12,7 @@ const NotFoundPage = () => (
       <Container className="h-100">
         <Row className="h-100 justify-content-center align-items-center">
           <Col>
-            <H18 className="mb-0 text-center text-uppercase">Ruta no encontrada</H18>
+            <h1 className="mb-0 text-center text-uppercase h1">Ruta no encontrada</h1>
           </Col>
         </Row>
       </Container>
