@@ -7,7 +7,7 @@ exports.createPages = async ({ actions }) => {
     const res = await axios.get(`${process.env.GATSBY_SERVER_URL}/api/test/obtain-tests`);
 
     for (let test of res.data) {
-      if (test.result) {
+      if (test.qrcode) {
         createPage({
           path: `/resultado-${test._id}/`,
           component: require.resolve("./src/templates/test.js"),
