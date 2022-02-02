@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { StaticImage } from "gatsby-plugin-image";
 import { css } from "@emotion/react";
 import styled from '@emotion/styled';
-import Moment from 'react-moment'
+import Moment from 'react-moment';
 
 const P9 = styled.p`
   margin-bottom: 0rem;
@@ -134,7 +134,7 @@ const Test = ({ pageContext }) => {
             <Row className="h-100 justify-content-center align-items-center">
               <Col>
                 <H18 className="mb-0 text-center text-uppercase">Prueba Vencida</H18>
-                <p className="text-center">Para más información contactar a</p>
+                {/* <p className="text-center">Para más información contactar a</p> */}
               </Col>
             </Row>
           </Container>
