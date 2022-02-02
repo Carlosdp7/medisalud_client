@@ -31,7 +31,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   result.data.allCustomApi.nodes.forEach((node, index) => {
     createPage({
-      path: `resultado-${node.id}/`,
+      path: `resultado-${node._id}/`,
       component: require.resolve("./src/templates/test.js"),
       context: node,
       defer: index + 1 > 20,
