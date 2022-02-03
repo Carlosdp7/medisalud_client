@@ -5,6 +5,7 @@ import TestForm from "../../components/test-form";
 import { TestContext } from "../../context/TestContext";
 
 const UpdateProduct = ({ serverData }) => {
+  const [test, setTest] = React.useState(serverData.test);
   const { tests, setTestsFn } = React.useContext(TestContext);
   const firstTime = React.useRef(true);
 
@@ -15,11 +16,20 @@ const UpdateProduct = ({ serverData }) => {
       return
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  React.useEffect(() => {
+    const fetchTest = async () => {
+      const res = await clientAxios.get(`/test/obtain-test/${serverData.id}`)
+      setTest(res.data.test)
+    }
+    fetchTest()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <Layout>
-      <TestForm title="Editar Prueba" test={serverData.test} />
+      <TestForm title="Editar Prueba" test={test} />
     </Layout>
   )
 }
@@ -30,9 +40,8 @@ export async function getServerData(context) {
   try {
     const id = context.query.id
     const [test, tests] = await Promise.all([clientAxios.get(`/test/obtain-test/${id}`), clientAxios.get('/test/obtain-tests')]);
-
     return {
-      props: { test: test.data.test, tests: tests.data }
+      props: { test: test.data.test, tests: tests.data, id }
     }
   } catch (error) {
     return {

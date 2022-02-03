@@ -126,7 +126,7 @@ const Test = ({ pageContext }) => {
     return value;
   }
 
-  if (!pageContext.isValid) {
+  if (!pageContext.isValid || pageContext.isDelete) {
     return (
       <Layout>
         <section css={css`height: 100vh;padding:2rem 0;`}>

@@ -10,6 +10,7 @@ import { UserContext } from "../../context/UserContext";
 import clienteAxios from "../../axios/axios";
 import { TestContext } from "../../context/TestContext";
 import Moment from 'react-moment';
+import Swal from 'sweetalert2';
 
 const Home = ({ serverData }) => {
   const { logoutUser, auth, loading, obtainUser } = React.useContext(UserContext);
@@ -21,11 +22,23 @@ const Home = ({ serverData }) => {
   }
 
   const handleDeleteTest = (id) => {
-    deleteTest(id);
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡Esta acción no tiene vuelta atrás!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#0b5ed7',
+      cancelButtonColor: '#bb2d3b',
+      confirmButtonText: 'Si, borrar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteTest(id);
+      }
+    })
   }
 
   const convertMilitaryToStandardTime = (value) => {
-    console.log(value);
     const [hour, minutes] = value.split(':');
 
     let newValue;
@@ -54,7 +67,6 @@ const Home = ({ serverData }) => {
   }, [auth, loading]);
 
   React.useEffect(() => {
-    console.log(firstTime);
     if (tests.length === 0 && firstTime.current) {
       setTestsFn(serverData)
       firstTime.current = false;
