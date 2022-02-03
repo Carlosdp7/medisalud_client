@@ -200,7 +200,7 @@ const Test = ({ pageContext }) => {
                   <div >
                     <P16>
                       <span className="fw-bold me-1">Sexo y Edad:</span>
-                      <span>{pageContext.gender}</span>
+                      <span className="me-2">{pageContext.gender}</span> <span>{pageContext.age} años</span>
                     </P16>
                   </div>
                 </Col>
