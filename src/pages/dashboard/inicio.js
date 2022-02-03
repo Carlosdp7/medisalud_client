@@ -115,7 +115,7 @@ const Home = ({ serverData }) => {
             <Col xs={12} className="mb-4 text-center">
               <h1>Pruebas</h1>
             </Col>
-            <Col sm={10}>
+            <Col md={10}>
               <Table striped bordered responsive>
                 <thead>
                   <tr>

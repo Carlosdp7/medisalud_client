@@ -148,7 +148,7 @@ const Test = ({ pageContext }) => {
       <section css={css`min-height: 100vh;padding:2rem 0;`}>
         <Container>
           <Row className="justify-content-center pb-3 pb-lg-5">
-            <Col xs={10}>
+            <Col xs={11} sm={10}>
               <Row className="align-items-center gx-0" >
                 <Col xs={{ offset: 2, span: 2 }}>
                   <div className="text-center">
@@ -178,7 +178,7 @@ const Test = ({ pageContext }) => {
             </Col>
           </Row>
           <Row className="justify-content-center pt-2 pt-lg-4">
-            <Col className="pb-2 pb-lg-3 pt-1" xs={10} css={css`border: 1px solid #000;@media(min-width: 992px){border: 3px solid #000;}`}>
+            <Col className="pb-2 pb-lg-3 pt-1" xs={11} sm={10} css={css`border: 1px solid #000;@media(min-width: 992px){border: 3px solid #000;}`}>
               <Row className="gx-0">
                 <Col xs={3} className="mb-2 mb-lg-4">
                   <div >
@@ -248,7 +248,7 @@ const Test = ({ pageContext }) => {
             </Col>
           </Row>
           <Row className="justify-content-center pt-1 pt-lg-2">
-            <Col className="py-1" xs={10} css={css`border: 1px solid #000;@media(min-width: 992px){border: 3px solid #000;}`}>
+            <Col className="py-1" xs={11} sm={10} css={css`border: 1px solid #000;@media(min-width: 992px){border: 3px solid #000;}`}>
               <Row className="gx-0">
                 <Col xs={6}>
                   <H16 css={css`font-weight: bold;`}>Descripción del Examen</H16>
@@ -259,7 +259,7 @@ const Test = ({ pageContext }) => {
               </Row>
 
             </Col>
-            <Col className="py-2 py-lg-4" xs={10}>
+            <Col className="py-2 py-lg-4" xs={11} sm={10}>
               <Row className="gx-0">
                 <Col xs={6}>
                   <P16>ANTIGENO SARS-COVID 2 <br />
@@ -275,7 +275,7 @@ const Test = ({ pageContext }) => {
           </Row>
 
           <Row className="justify-content-center pt-2 pt-lg-4">
-            <Col xs={10}>
+            <Col xs={11} sm={10}>
               <Row >
                 <Col xs={12} className="mb-3 mb-lg-4">
                   <P16>Si tu resultado es SARS-COVID 2 Detectable (Positivo) Correlaciones clínicas con la historia del paciente y otras informaciones diagnosticas deben ser realizadas para determinar el status de la infección. Tomar en cuenta las siguientes recomendaciones:</P16>
@@ -293,7 +293,7 @@ const Test = ({ pageContext }) => {
           </Row>
 
           <Row className="justify-content-center gx-0" css={css`padding-top:8rem; @media(min-width: 992px) {padding-top: 20rem;}`}>
-            <Col xs={10}>
+            <Col xs={11} sm={10}>
               <div className="d-flex justify-content-end text-center">
                 <div>
                   <H17 className="mb-0">Dr. Yosber Gómez</H17>
@@ -305,7 +305,7 @@ const Test = ({ pageContext }) => {
           </Row>
 
           <Row className="justify-content-center gx-0">
-            <Col xs={10} className="pt-2 pt-lg-4 mt-2 mt-lg-4 border-top">
+            <Col xs={11} sm={10} className="pt-2 pt-lg-4 mt-2 mt-lg-4 border-top">
               <Row>
                 <Col xs={3} md={4} className="d-flex flex-column justify-content-center align-items-start">
                   <div className="mb-0">

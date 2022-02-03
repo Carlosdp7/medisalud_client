@@ -123,8 +123,8 @@ const TestForm = ({ title, test }) => {
 
   return (
     <section css={css`height:100vh;padding:2rem 0;position:relative;`}>
-      <div css={css`position: absolute; top:3rem; left:5rem;font-size:20px !important;`}>
-        <Link to="/dashboard/inicio/" css={css`color:#000 !important;`}><span className="me-2"><MdArrowBack /></span> Volver</Link>
+      <div css={css`position: absolute; top:7%; left:5%;font-size:20px !important;`}>
+        <Link to="/dashboard/inicio/" css={css`color:#000 !important;@media(max-width: 450px){font-size: 12px;}`}><span className="me-2"><MdArrowBack /></span> Volver</Link>
       </div>
       <Container>
         <Row className="justify-content-center align-items-start">
