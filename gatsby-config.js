@@ -1,6 +1,3 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
 
 module.exports = {
   siteMetadata: {
@@ -9,32 +6,32 @@ module.exports = {
     author: `@medisaludc`
   },
   plugins: [
-    // {
-    //   resolve: "gatsby-source-custom-api",
-    //   options: {
-    //     url: `${process.env.GATSBY_SERVER_URL}/api/test/obtain-tests`,
-    //     rootKey: `tests`,
-    //     schemas: {
-    //       tests: `
-    //       _id: String
-    //       address: String
-    //       age: Int
-    //       createdAt: String
-    //       di: String
-    //       firstname: String
-    //       gender: String
-    //       isDelete: Boolean
-    //       isValid: Boolean
-    //       lastname: String
-    //       phone: String
-    //       qrcode: String
-    //       result: Boolean
-    //       time: String
-    //       updatedAt: String
-    //       `
-    //     }
-    //   }
-    // },
+    {
+      resolve: "gatsby-source-custom-api",
+      options: {
+        url: `https://medisalud-api.herokuapp.com/api/test/obtain-tests`,
+        rootKey: `tests`,
+        schemas: {
+          tests: `
+          _id: String
+          address: String
+          age: Int
+          createdAt: String
+          di: String
+          firstname: String
+          gender: String
+          isDelete: Boolean
+          isValid: Boolean
+          lastname: String
+          phone: String
+          qrcode: String
+          result: Boolean
+          time: String
+          updatedAt: String
+          `
+        }
+      }
+    },
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
