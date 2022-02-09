@@ -10,6 +10,26 @@ const UserProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const handleErrors = (err) => {
+    if (!err.response) {
+      return Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Error de conexión',
+        confirmButtonColor: '#0b5ed7'
+      });
+    }
+    const errors = err.response.data;
+    const msg = errors?.errors?.length ? errors.errors[0].msg : errors.err;
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: msg,
+      confirmButtonColor: '#0b5ed7'
+    });
+  }
+
   const signIn = async (email, password) => {
     try {
       const res = await clienteAxios.post('/user/signin', { email, password });
@@ -18,25 +38,7 @@ const UserProvider = ({ children }) => {
 
       obtainUser();
     } catch (err) {
-      if (!err.response) {
-        return Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Error de conexión',
-          confirmButtonColor: '#0b5ed7'
-        });
-      }
-      const errors = err.response.data;
-      const msg = errors?.errors?.length ? errors.errors[0].msg : errors.err;
-      setAuth(null);
-      setLoading(false);
-      setUser(null);
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: msg,
-        confirmButtonColor: '#0b5ed7'
-      });
+      handleErrors(err)
     }
   }
 
@@ -54,17 +56,7 @@ const UserProvider = ({ children }) => {
       setAuth(true);
       setLoading(false);
     } catch (err) {
-      const errors = err.response.data;
-      const msg = errors?.errors?.length ? errors.errors[0].msg : errors.err;
-      setAuth(null);
-      setLoading(false);
-      setUser(null);
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: msg,
-        confirmButtonColor: '#0b5ed7'
-      });
+      handleErrors(err)
     }
   }
 
@@ -78,17 +70,7 @@ const UserProvider = ({ children }) => {
       setAuth(null);
       setLoading(false);
     } catch (err) {
-      const errors = err.response.data;
-      const msg = errors?.errors?.length ? errors.errors[0].msg : errors.err;
-      setAuth(null);
-      setLoading(false);
-      setUser(null);
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: msg,
-        confirmButtonColor: '#0b5ed7'
-      });
+      handleErrors(err)
     }
   }
 

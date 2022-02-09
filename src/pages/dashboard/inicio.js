@@ -66,14 +66,14 @@ const Home = ({ serverData }) => {
     }
   }, [auth, loading]);
 
-  React.useEffect(() => {
-    if (tests.length === 0 && firstTime.current) {
-      setTestsFn(serverData)
-      firstTime.current = false;
-      return
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  // React.useEffect(() => {
+  //   if (tests.length === 0 && firstTime.current) {
+  //     setTestsFn(serverData)
+  //     firstTime.current = false;
+  //     return
+  //   };
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [])
 
   return (
     <Layout>
@@ -213,18 +213,18 @@ const Home = ({ serverData }) => {
 
 export default Home;
 
-export async function getServerData() {
-  try {
-    const res = await clienteAxios.get('/test/obtain-tests');
+// export async function getServerData() {
+//   try {
+//     const res = await clienteAxios.get('/test/obtain-tests');
 
-    return {
-      props: res.data,
-    }
-  } catch (error) {
-    return {
-      status: 500,
-      headers: {},
-      props: {},
-    }
-  }
-}
+//     return {
+//       props: res.data,
+//     }
+//   } catch (error) {
+//     return {
+//       status: 500,
+//       headers: {},
+//       props: {},
+//     }
+//   }
+// }
