@@ -5,7 +5,7 @@ import TestForm from "../../components/test-form";
 import { TestContext } from "../../context/TestContext";
 
 const UpdateProduct = ({ serverData }) => {
-  const [test, setTest] = React.useState(null);
+  const [test, setTest] = React.useState({});
   const { tests, setTestsFn } = React.useContext(TestContext);
   // const firstTime = React.useRef(true);
 

@@ -5,7 +5,7 @@ import TestForm from "../../components/test-form";
 
 const SeeProduct = ({ serverData }) => {
 
-  const [test, setTest] = React.useState(null);
+  const [test, setTest] = React.useState({});
 
   // React.useEffect(() => {
   //   const fetchTest = async () => {
