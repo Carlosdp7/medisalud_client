@@ -7,15 +7,13 @@ import { AiFillDelete, AiOutlineDownload, AiFillEdit, AiFillEye, AiOutlinePlus }
 import { FiLogOut } from 'react-icons/fi';
 import { StaticImage } from "gatsby-plugin-image"
 import { UserContext } from "../../context/UserContext";
-import clienteAxios from "../../axios/axios";
 import { TestContext } from "../../context/TestContext";
 import Moment from 'react-moment';
 import Swal from 'sweetalert2';
 
-const Home = ({ serverData }) => {
+const Home = () => {
   const { logoutUser, auth, loading, obtainUser } = React.useContext(UserContext);
-  const { tests, setTestsFn, deleteTest } = React.useContext(TestContext);
-  const firstTime = React.useRef(true);
+  const { tests, deleteTest, obtainTests } = React.useContext(TestContext);
 
   const handleLogoutUser = () => {
     logoutUser();
@@ -67,11 +65,7 @@ const Home = ({ serverData }) => {
   }, [auth, loading]);
 
   React.useEffect(() => {
-    if (tests.length === 0 && firstTime.current) {
-      setTestsFn(serverData)
-      firstTime.current = false;
-      return
-    };
+    obtainTests();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -212,24 +206,3 @@ const Home = ({ serverData }) => {
 }
 
 export default Home;
-
-export async function getServerData() {
-  try {
-    const res = await fetch(`https://medisalud-api.herokuapp.com/api/test/obtain-tests`);
-
-    if (!res.ok) {
-      throw new Error(`Response failed`)
-    }
-
-    return {
-      props: await res.json(),
-    }
-  } catch (error) {
-    console.log(error);
-    return {
-      status: 500,
-      headers: {},
-      props: {},
-    }
-  }
-}

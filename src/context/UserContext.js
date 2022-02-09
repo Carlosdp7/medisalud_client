@@ -21,7 +21,9 @@ const UserProvider = ({ children }) => {
     }
     const errors = err.response.data;
     const msg = errors?.errors?.length ? errors.errors[0].msg : errors.err;
-
+    setAuth(null);
+    setLoading(false);
+    setUser(null);
     Swal.fire({
       icon: 'error',
       title: 'Oops...',

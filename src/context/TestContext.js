@@ -39,8 +39,14 @@ const TestProvider = ({ children }) => {
     });
   }
 
-  const setTestsFn = (tests) => {
-    setTests(tests);
+  const obtainTests = async () => {
+    try {
+      const res = await clienteAxios.get('/test/obtain-tests');
+
+      setTests(res.data);
+    } catch (err) {
+      handleErrors(err);
+    }
   }
 
   const createTest = async (data) => {
@@ -87,7 +93,7 @@ const TestProvider = ({ children }) => {
     <TestContext.Provider
       value={{
         tests,
-        setTestsFn,
+        obtainTests,
         createTest,
         updateTest,
         deleteTest
