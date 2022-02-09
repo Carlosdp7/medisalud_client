@@ -225,6 +225,7 @@ export async function getServerData() {
       props: await res.json(),
     }
   } catch (error) {
+    console.log(error);
     return {
       status: 500,
       headers: {},
