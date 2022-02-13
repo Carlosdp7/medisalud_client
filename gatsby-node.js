@@ -1,3 +1,5 @@
+const path = require("path")
+
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -26,13 +28,12 @@ exports.createPages = async ({ actions, graphql }) => {
   }
     `);
 
-  result.data.allTests.nodes.forEach((node, index) => {
+  result.data.allTests.nodes.forEach((node) => {
     if (node.qrcode) {
       createPage({
         path: `/resultado-${node._id}/`,
-        component: require.resolve("./src/templates/test.js"),
-        context: node,
-        defer: index + 1 > 20,
+        component: path.resolve("./src/templates/test.js"),
+        context: node
       });
     }
   })
