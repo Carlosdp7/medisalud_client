@@ -137,7 +137,7 @@ const Home = () => {
                       <td>{test.di}</td>
                       <td>
                         <Moment format="DD/MM/YYYY">
-                          {test.createdAt}
+                          {test.admissionDate ?? test.createdAt}
                         </Moment>
                       </td>
                       <td>{convertMilitaryToStandardTime(test.time)}</td>
