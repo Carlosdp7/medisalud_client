@@ -57,7 +57,7 @@ const TestForm = ({ title, test }) => {
         di: test.di,
         address: test.address,
         time: test.time,
-        admissionDate: test.admissionDate ? test.admissionDate.split('T')[0] : '',
+        admissionDate: test.admissionDate ? test.admissionDate?.split('T')[0] : test.createdAt?.split('T')[0],
         result: test.result !== null ? test.result : '',
         isValid: test.result !== null ? test.isValid : ''
       })
@@ -108,19 +108,21 @@ const TestForm = ({ title, test }) => {
         await updateTest(test._id, data)
       }
 
-      setFormData({
-        firstname: '',
-        lastname: '',
-        phone: '',
-        age: '',
-        gender: '',
-        di: '',
-        address: '',
-        time: '',
-        admissionDate: '',
-        result: '',
-        isValid: ''
-      });
+      if (isAddTest) {
+        setFormData({
+          firstname: '',
+          lastname: '',
+          phone: '',
+          age: '',
+          gender: '',
+          di: '',
+          address: '',
+          time: '',
+          admissionDate: '',
+          result: '',
+          isValid: ''
+        });
+      }
     } catch (err) {
     }
   }
