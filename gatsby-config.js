@@ -10,6 +10,7 @@ module.exports = {
       resolve: "gatsby-source-custom-api",
       options: {
         url: `https://medisalud-api.herokuapp.com/api/test/obtain-tests`,
+        // url: `http://localhost:8080/api/test/obtain-tests`,
         rootKey: `tests`,
         schemas: {
           tests: `
@@ -27,6 +28,7 @@ module.exports = {
           qrcode: String
           result: Boolean
           time: String
+          admissionDate: Date
           updatedAt: String
           `
         }

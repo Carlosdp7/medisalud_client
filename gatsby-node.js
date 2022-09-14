@@ -22,6 +22,7 @@ exports.createPages = async ({ actions, graphql }) => {
         qrcode
         result
         time
+        admissionDate
         updatedAt
       }
     }

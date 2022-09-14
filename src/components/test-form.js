@@ -27,11 +27,12 @@ const TestForm = ({ title, test }) => {
     di: '',
     address: '',
     time: '',
+    admissionDate: '',
     result: '',
     isValid: ''
   });
 
-  const { firstname, lastname, phone, age, gender, di, address, time, result, isValid } = formdata;
+  const { firstname, lastname, phone, age, gender, di, address, time, admissionDate, result, isValid } = formdata;
 
   React.useEffect(() => {
     obtainUser();
@@ -56,6 +57,7 @@ const TestForm = ({ title, test }) => {
         di: test.di,
         address: test.address,
         time: test.time,
+        admissionDate: test.admissionDate ? test.admissionDate.split('T')[0] : '',
         result: test.result !== null ? test.result : '',
         isValid: test.result !== null ? test.isValid : ''
       })
@@ -83,11 +85,12 @@ const TestForm = ({ title, test }) => {
         di,
         address,
         time,
+        admissionDate,
         result: result !== '' ? result : undefined
       }
 
       if (isAddTest) {
-        if (firstname === '' || lastname === '' || phone === '' || age === '' || gender === '' || di === '' || address === '' || time === '') {
+        if (firstname === '' || lastname === '' || phone === '' || age === '' || gender === '' || di === '' || address === '' || time === '' || admissionDate === '') {
           return Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -114,6 +117,7 @@ const TestForm = ({ title, test }) => {
         di: '',
         address: '',
         time: '',
+        admissionDate: '',
         result: '',
         isValid: ''
       });
@@ -177,6 +181,12 @@ const TestForm = ({ title, test }) => {
                 <Col lg={12}>
                   <Form.Label>Hora</Form.Label>
                   <Form.Control type="time" name="time" value={time} onChange={readFormData} disabled={isSeeTest} />
+                </Col>
+              </Row>
+              <Row className="pb-3">
+                <Col lg={12}>
+                  <Form.Label>Ingreso</Form.Label>
+                  <Form.Control type="date" name="admissionDate" value={admissionDate} onChange={readFormData} disabled={isSeeTest} />
                 </Col>
               </Row>
               <Row className="pb-3">

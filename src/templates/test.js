@@ -210,7 +210,7 @@ const Test = ({ pageContext }) => {
                       <span className="fw-bold me-1">Ingreso:</span>
                       <span>
                         <Moment format="DD/MM/YYYY">
-                          {pageContext.createdAt}
+                          {pageContext.admissionDate?.split('T')[0] ?? pageContext.createdAt}
                         </Moment>
                       </span>
                     </P16>
